@@ -1,0 +1,12 @@
+{
+  "name": "module-2",
+  "version": "1.0.0",
+  "description": "test ",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc --watch -w"
+  },
+  "author": "viet vo",
+  "license": "ISC"
+}

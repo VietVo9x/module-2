@@ -212,7 +212,7 @@ class ClassRoom {
 // }
 
 class Employee {
-  private employeeId: string;
+  private id: string;
   private name: string;
   private age: number;
   private gen: string;
@@ -220,13 +220,13 @@ class Employee {
   private salary: number;
 
   constructor(
-    employeeId: string,
+    id: string,
     name: string,
     age: number,
     gen: string,
     rate: number
   ) {
-    this.employeeId = employeeId;
+    this.id = id;
     this.name = name;
     this.age = age;
     this.gen = gen;
@@ -236,11 +236,11 @@ class Employee {
 
   inputData() {
     // Cho phép người dùng nhập thông tin
-    this.employeeId = prompt("Nhập mã nhân viên: ") || "";
+    this.id = prompt("Nhập mã nhân viên: ") || "";
     this.name = prompt("Nhập tên nhân viên: ") || "";
-    this.age = parseInt(prompt("Nhập tuổi: ") || "0");
+    this.age = Number(prompt("Nhập tuổi: ") || "0");
     this.gen = prompt("Nhập giới tính: ") || "";
-    this.rate = parseFloat(prompt("Nhập hệ số lương: ") || "0");
+    this.rate = Number(prompt("Nhập hệ số lương: ") || "0");
   }
 
   calSalary() {
@@ -250,7 +250,7 @@ class Employee {
 
   displayData() {
     // Hiển thị thông tin nhân viên
-    console.log("Mã nhân viên:", this.employeeId);
+    console.log("Mã nhân viên:", this.id);
     console.log("Tên nhân viên:", this.name);
     console.log("Tuổi:", this.age);
     console.log("Giới tính:", this.gen);

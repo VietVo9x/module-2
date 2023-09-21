@@ -1,96 +1,179 @@
 class Product {
-  constructor(
-    readonly id: number,
-    private name: string,
-    private price: number,
-    private quantity: number
-  ) {
-    this.id = id;
+  readonly id: number;
+  private name: string;
+  private price: number;
+  private quantity: number;
+
+  constructor(id: number, name: string, price: number, quantity: number) {
     this.name = name;
     this.price = price;
     this.quantity = quantity;
+    this.id = id;
   }
-  get getInfo() {
+
+  get info(): { id: number; name: string; price: number; quantity: number } {
     return {
-      id: this.id,
       name: this.name,
       price: this.price,
       quantity: this.quantity,
+      id: this.id,
     };
   }
-
-  get getName() {
-    return this.name;
-  }
-  get getPrice() {
-    return this.price;
-  }
-  get getQuantity() {
-    return this.quantity;
-  }
-
   set setName(name: string) {
     this.name = name;
   }
-  set sePrice(price: number) {
+  set setPrice(price: number) {
     this.price = price;
   }
   set setQuantity(quantity: number) {
     this.quantity = quantity;
   }
-  inputData() {
-    this.name = prompt("nhap name") || "";
-    this.price = Number(prompt("nhap price")) || 0;
-    this.quantity = Number(prompt("nhap quantity")) || 0;
-  }
-  displayData() {
-    return `Id: ${this.id}, Name: ${this.name}, Price: ${this.price}, Quantity: ${this.quantity}`;
-  }
 }
 
 class Bakery {
   private productList: Product[] = [];
-  //tao moi product
-  addProduct(data: { name: string; price: number; quantity: number }) {
+
+  createProduct(data: { name: string; price: number; quantity: number }) {
     let id: number = 1;
     if (this.productList.length > 0) {
-      id = this.productList[this.getLength - 1].id + 1;
+      id = this.productList[this.productList.length - 1].id + 1;
     }
+
     const newProduct = new Product(id, data.name, data.price, data.quantity);
     this.productList.push(newProduct);
   }
-  get getLength() {
-    return this.productList.length;
-  }
-  //hien thi tat ca product
-  displayProduct() {
-    const products = this.productList.forEach((product) => product.getInfo);
+  showAllProduct() {
+    const products = this.productList.map((product) => product.info);
     return products;
   }
-  //delete product
   deleteProduct(id: number) {
     // const index = this.productList.findIndex((product) => product.id === id);
-    // this.productList.splice(index, 1); // tìm theo thứ tự và xoá = splice
-    const newProductList = this.productList.filter(
-      (product) => product.id !== id
-    );
-    this.productList = newProductList; // gán lại
-  }
-  //update product
-  updateProduct(id: number, updatedData: any): void {
-    const productIndex = this.productList.findIndex(
-      (product) => product.id === id
-    );
-    if (productIndex !== -1) {
-      // Sao chép thuộc tính của sản phẩm hiện tại
-      const currentProduct = { ...this.productList[productIndex] };
+    // this.productList.splice(index, 1);
 
-      // Áp dụng các thay đổi từ updatedData
-      this.productList[productIndex] = { ...currentProduct, ...updatedData };
+    const newList = this.productList.filter((product) => product.id !== id);
+    this.productList = newList;
+  }
+
+  updateProduct(data: any) {
+    if (data?.id) {
+      const product = this.productList.find((product) => product.id == data.id);
+      const index = this.productList.findIndex(
+        (product) => product.id == data.id
+      );
+
+      const newProduct = { ...product?.info, ...data };
+      const productAdd = new Product(
+        newProduct.id,
+        newProduct.name,
+        newProduct.price,
+        newProduct.quantity
+      );
+
+      this.productList.splice(index, 1, productAdd);
+    }
+  }
+
+  buyProduct(id: number): undefined | Product {
+    const product = this.productList.find((product) => product.id == id);
+    if (product === undefined) {
+      alert("Sản phẩm không tồn tại");
+      return;
+    }
+
+    if (product.info.quantity > 0) {
+      // Giảm số lượng trong Bakery
+      product.setQuantity = product.info.quantity - 1;
+      this.updateProduct(product);
+
+      //   Phải tạo sản phẩm mới với số lượng mới
+      const newProduct = new Product(
+        product.info.id,
+        product.info.name,
+        product.info.price,
+        1
+      );
+      return newProduct;
     } else {
-      console.log(`Không tìm thấy sản phẩm với ID ${id}`);
+      alert("Sản phẩm hết hàng");
+    }
+  }
+  returnProduct(id: number, quantity: number) {
+    const product = this.productList.find((product) => product.id === id);
+
+    if (product) {
+      // Kiểm tra số lượng trả lại có hợp lệ không
+      if (quantity > 0) {
+        // Cập nhật số lượng trong cửa hàng
+        product.setQuantity = product.info.quantity + quantity;
+        // Cập nhật thông tin sản phẩm trong danh sách sản phẩm của cửa hàng (nếu cần)
+        // this.updateProduct(product);
+        console.log(111111111, this.productList, product);
+      } else {
+        alert("Số lượng trả lại không hợp lệ");
+      }
+    } else {
+      alert("Sản phẩm không tồn tại");
     }
   }
 }
-const products = new Bakery();
-console.log(products);
+
+const store = new Bakery();
+
+store.createProduct({ name: "Bánh mì", price: 20000, quantity: 50 });
+store.createProduct({ name: "Bánh bao", price: 15000, quantity: 100 });
+store.createProduct({ name: "Bánh trung thu", price: 150000, quantity: 200 });
+store.createProduct({ name: "Bánh đa", price: 10000, quantity: 200 });
+
+class MyCart {
+  private myCart: Product[] = [];
+
+  buyProduct(id: number) {
+    // Trừ sản phẩm
+    const product = store.buyProduct(id);
+    // name, id, price từ --> Bakery --> tạo 1 sản phẩm mới với số lượng là 1 --> cart
+
+    if (!product) {
+      return;
+    }
+
+    const productCart = this.myCart.find(
+      (productInCart) => productInCart.id === product.id
+    );
+
+    if (productCart) {
+      productCart.setQuantity = productCart.info.quantity + 1;
+    } else {
+      this.myCart.push(product);
+    }
+  }
+  deleteProduct(id: number): void {
+    const indexProduct = this.myCart.findIndex((product) => product.id === id); //index trong cart
+    const product = this.myCart.find((product) => product.id === id); //product trong cart
+
+    if (product) {
+      store.returnProduct(id, product?.info.quantity);
+    }
+
+    //xoa san pham trong cart
+    this.myCart.splice(indexProduct, 1);
+  }
+  upDateQuantityProduct(id: number) {
+    const product = this.myCart.find((product) => product.id === id);
+  }
+
+  showAllCart() {
+    const products = this.myCart.map((product) => product.info);
+    return products;
+  }
+}
+
+const user_1 = new MyCart();
+user_1.buyProduct(1);
+user_1.buyProduct(2);
+user_1.buyProduct(2);
+user_1.buyProduct(3);
+user_1.buyProduct(4);
+user_1.buyProduct(4);
+user_1.deleteProduct(4);
+console.log(user_1);
+console.log(store);

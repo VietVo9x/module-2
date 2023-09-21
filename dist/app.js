@@ -89,7 +89,7 @@ class Bakery {
             }
         }
         else {
-            alert("Sản phẩm không tồn tại");
+            alert("Sản phẩm đã hết hàng");
         }
     }
 }
@@ -126,8 +126,7 @@ class MyCart {
         //xoa san pham trong cart
         this.myCart.splice(indexProduct, 1);
     }
-    upDateQuantityProduct(id) {
-        const product = this.myCart.find((product) => product.id === id);
+    editCart() {
     }
     showAllCart() {
         const products = this.myCart.map((product) => product.info);

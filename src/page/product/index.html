@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- category -->
+    <section class="category">
+      <div class="category-content">
+        <div class="category-left">
+          <h4>CATEGORIES</h4>
+          <ul class=" menu-category">
+            <li>
+              <input
+                type="checkbox"
+                id="accessories"
+                value="1"
+                data-filter="category"
+              />
+              <label for="accessories">Accessories</label>
+            </li>
+
+            <li>
+              <input
+                type="checkbox"
+                id="pc"
+                value="2"
+                data-filter="category"
+              /><label for="pc">PC</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                id="laptop"
+                value="3"
+                data-filter="category"
+              /><label for="laptop">Laptop</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                id="gaming-gear"
+                value="4"
+                data-filter="category"
+              /><label for="gaming-gear">Gaming gear</label>
+            </li>
+            <li>
+              <h4>Prices</h4>
+            </li>
+
+            <li>
+              <input
+                type="checkbox"
+                id="price-1"
+                value="1-50"
+                data-filter="price"
+              />
+              <label for="price-1">$1 - $50</label>
+            </li>
+
+            <li>
+              <input
+                type="checkbox"
+                id="price-2"
+                value="51-100"
+                data-filter="price"
+              /><label for="price-2">$51 - 100</label>
+            </li>
+            <li>
+              <input
+                type="checkbox"
+                id="price-3"
+                value="101-250"
+                data-filter="price"
+              /><label for="price-3">$101 - $250</label>
+            </li>
+          </ul>
+          <h4>TOP RATED PRODUCTS</h4>
+          <ul class="top-rate-list">
+            <li class="top-rate-item">
+              <a href=""><img src="" alt="" /></a>
+              <div class="top-rate-item-desc">
+                <a href="">HDMI to VGA Converter</a>
+                <small>$25</small>
+                <span>$19</span>
+              </div>
+            </li>
+            <li class="top-rate-item">
+              <a href=""><img src="" alt="" /></a>
+              <div class="top-rate-item-desc">
+                <a href=""> HDMI to VGA Converter</a>
+                <small>$25</small>
+                <span>$19</span>
+              </div>
+            </li>
+            <li class="top-rate-item">
+              <a href=""><img src="" alt="" /></a>
+              <div class="top-rate-item-desc">
+                <a href="">HDMI to VGA Converter</a>
+                <small>$25</small>
+                <span>$19</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="category-right">
+          <div class="category-products">
+            <div class="card">
+              <div class="card-top">
+                <a href=""><img src="" alt="..." /></a>
+                <div class="btn-position">
+                  <a href=""><i class="fa-regular fa-eye"></i></a>
+                  <a href=""><i class="fa-solid fa-heart"></i></a>
+                  <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+              </div>
+              <div class="card-body">
+                <a class="card-title" href="">SATA internal SSD</a>
+                <p class="card-price">$16</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- category -->
+    <script src="./product.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Work+Sans:wght@500;700&family=Yeseva+One&display=swap");
+:root {
+  --white-color: #fff;
+  --bg-white: #ffffff;
+  --bg-grey: #f3f7fa;
+  --text-color: #333;
+  --blue-color: #0363cd;
+  --primary-color: #fc4d4d;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+input,
+select,
+textarea {
+  box-sizing: border-box;
+}
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+}

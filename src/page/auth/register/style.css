@@ -1,0 +1,85 @@
+/* login */
+.form-wapper {
+  padding: 60px 0;
+  width: 100%;
+}
+.form-content {
+  width: 500px;
+  padding: 50px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+.form-title {
+  margin-bottom: 35px;
+  text-align: center;
+}
+.form-title a,
+.heading {
+  font-size: 50px;
+  font-weight: 700;
+  display: inline-block;
+}
+.form-title span {
+  padding: 0 16px;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+.form-title a {
+  color: #ccc;
+}
+.form-title a:hover {
+  color: var(--text-color);
+}
+
+.form-validate > * {
+  margin-top: 30px;
+  color: var(--text-color);
+}
+#form-login {
+  padding-top: 50px;
+  min-height: 350px;
+}
+
+.form-group {
+  color: var(--text-color);
+}
+.form-group input {
+  height: 40px;
+  width: 100%;
+  padding: 0 12px;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  border: 1px solid #ccc;
+}
+.form-group label {
+  margin-bottom: 10px;
+}
+.form-btn {
+  text-align: center;
+  padding: 10px 24px;
+  margin-top: 30px;
+}
+.form-btn button {
+  padding: 10px 24px;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+.form-btn button:hover {
+  color: var(--white-color);
+  background-color: var(--text-color);
+}
+.forgot-password a {
+  color: var(--text-color);
+}
+.forgot-password a:hover {
+  color: var(--primary-color);
+}
+.error {
+  color: red;
+  display: block;
+}

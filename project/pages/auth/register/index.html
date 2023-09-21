@@ -4,8 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="/project/assets/css/base.css" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <!-- login -->
+    <section class="form-wapper">
+      <div class="container">
+        <div class="form-content m-auto">
+          <div class="form-title">
+            <a href="./login.html">Login</a>
+            <span>or</span>
+            <h3 class="heading">Register</h3>
+          </div>
+          <form action="" id="form-register" class="form-validate">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Name" />
+              <small class="name-error error"></small>
+            </div>
+            <div class="form-group">
+              <input type="text" id="email" placeholder="Email" />
+              <small class="email-error error"></small>
+            </div>
+
+            <div class="form-group">
+              <input type="password" id="password" placeholder="Password" />
+              <small class="password-error error"></small>
+            </div>
+            <div class="form-group">
+              <input
+                type="password"
+                id="repeat-password"
+                placeholder="Comfirm Password"
+              />
+              <small class="rpp-error error"></small>
+            </div>
+
+            <div class="form-btn">
+              <button type="submit">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- login -->
+
     <script src="./register.js"></script>
   </body>
 </html>

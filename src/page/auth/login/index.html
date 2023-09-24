@@ -8,21 +8,15 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <!-- register -->
     <section class="form-wapper">
       <div class="container">
         <div class="form-content m-auto">
           <div class="form-title">
-            <a href="/src/page/auth/login/index.html">Login</a>
+            <h3 class="heading">Login</h3>
             <span>or</span>
-            <h3 class="heading">Register</h3>
+            <a href="/src/page/auth/register/index.html">Register</a>
           </div>
           <form action="" id="form-register" class="form-validate">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" />
-              <small class="error-name error"></small>
-            </div>
             <div class="form-group">
               <label for="email">Email</label>
               <input type="text" id="email" />
@@ -34,11 +28,6 @@
               <input type="password" id="password" />
               <small class="error-password error"></small>
             </div>
-            <div class="form-group">
-              <label for="repeat-password">Confirm Password</label>
-              <input type="password" id="repeat-password" />
-              <small class="error-confirm-password error"></small>
-            </div>
 
             <div class="form-btn">
               <button type="submit">Register</button>
@@ -47,7 +36,5 @@
         </div>
       </div>
     </section>
-    <!-- register end -->
-    <script src="./register.event.js"></script>
   </body>
 </html>

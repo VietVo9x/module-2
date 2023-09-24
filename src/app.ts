@@ -157,8 +157,9 @@ class MyCart {
     //xoa san pham trong cart
     this.myCart.splice(indexProduct, 1);
   }
-  editCart() {
-    
+  editCart(id: number) {
+    this.myCart[1].setQuantity = 19;
+    console.log(this.myCart[1]);
   }
 
   showAllCart() {
@@ -177,3 +178,5 @@ user_1.buyProduct(4);
 user_1.deleteProduct(4);
 console.log(user_1);
 console.log(store);
+user_1.editCart(1);
+console.log(user_1);

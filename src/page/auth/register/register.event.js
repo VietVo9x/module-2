@@ -18,23 +18,13 @@ registerForm?.addEventListener("submit", (e) => {
 
   const errors = checkError(user, true);
 
-  displayError(errors);
-  console.log(errors);
-  if (errors.isError) {
-    return;
-  }
+  
 
   //B2 : lấy dữ liệu localstorage kiểm tra và trả về kết quả
   const registerServices = new RegisterService();
   const response = registerServices.register(user);
   if (response.status === "fail") {
     alert(response.message);
-  } else {
-    alert(response.message);
-    const accounts = [];
-    accounts.push(user);
-    console.log(111111);
-    setDataLocalStorage("accounts", accounts);
   }
 });
 

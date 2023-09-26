@@ -7,7 +7,7 @@ export class RegisterService {
     // Đùng đẩy trách nhiệm --> repository --> backend thì repo xử lý --> mong muốn
     const registerRepository = new RegisterRepository();
 
-    const response = registerRepository.registerUser(data.email, data.password);
+    const response = registerRepository.registerUser(data);
     //   const response = {
     //     status: "",
     //     data: "",

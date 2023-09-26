@@ -1,14 +1,14 @@
 "use strict";
 
-import { getDataLocalStorage } from "../../../utils/method.js";
+import { getDataLocalStorage, setDataLocalStorage } from "../../../utils/method.js";
 
 export class RegisterRepository {
-  registerUser(email) {
+  registerUser(data) {
     const accounts = getDataLocalStorage("accounts");
 
     if (accounts) {
       for (const user of accounts) {
-        if (user.email === email) {
+        if (user.email === data.email) {
           return {
             status: "fail",
             data: null,
@@ -16,12 +16,18 @@ export class RegisterRepository {
           };
         }
       }
+      accounts.push(data)
+      setDataLocalStorage('accounts', accounts)
+      return {
+        status: "success",
+        data: null,
+        message: "Đăng ký thành công",
+      };
     }
-
     return {
-      status: "success",
+      status: "fail",
       data: null,
-      message: "Đăng ký thành công",
+      message: "Lỗi 500 --> database",
     };
 
     // Kiểm tra thông tin và trả về kết quả
